@@ -16,8 +16,9 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        val input = arguments?.getString("user_input")
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_second, container, false)
+        binding.textView2.text = input
         return binding.root
     }
 }

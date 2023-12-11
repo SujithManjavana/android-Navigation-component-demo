@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.sujith.navigationcomponentdemo.databinding.FragmentHomeBinding
@@ -20,7 +21,8 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         binding.button.setOnClickListener {
-            it.findNavController().navigate(R.id.action_homeFragment_to_secondFragment)
+            val bundle = bundleOf("user_input" to binding.editTextText.text.toString())
+            it.findNavController().navigate(R.id.action_homeFragment_to_secondFragment, bundle)
         }
         return binding.root
     }
