@@ -10,22 +10,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.databinding.DataBindingUtil
+import com.sujith.navigationcomponentdemo.databinding.ActivityMainBinding
 import com.sujith.navigationcomponentdemo.ui.theme.NavigationComponentDemoTheme
 
 class MainActivity : ComponentActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            NavigationComponentDemoTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
-        }
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
 }
 
